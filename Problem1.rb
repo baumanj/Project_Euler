@@ -3,11 +3,8 @@
 
 n = 1000
 
-multiples = (1...n).to_a.select do |num|
+multiples = (1...n).select do |num|
 	num % 3 == 0 || num % 5  == 0
 end
 
-sum = 0
-multiples.each {|num| sum += num}
-
-sum
+puts multiples.inject {|sum, num| sum + num}
