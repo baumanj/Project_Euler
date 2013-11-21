@@ -7,4 +7,4 @@ multiples = (1...n).select do |num|
 	num % 3 == 0 || num % 5  == 0
 end
 
-puts multiples.inject {|sum, num| sum + num}
+puts multiples.inject &:+
