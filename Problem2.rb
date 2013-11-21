@@ -1,22 +1,17 @@
 # Problem 2
-# Find the sum of even Fibonacci numbers that do not exceed 1000000
+# Find the sum of even Fibonacci numbers that do not exceed 4 million
 
 x = 1
-y = 1
-fib_nums = [x,y]
+y = 2 # The problem states the sequence starts with 1, 2
 
-while (x+y) < 4000000
-  fib_nums << (x+y)
-  y = fib_nums[-1]
-  x = fib_nums[-2]
-end
-
+# Ruby allows _ to make numeric literals more readable
+# Also, there's no need to store the whole array of numbers; sum as you go
+# Finally, using x as your while condition allows for a simpler body
 sum = 0
-fib_nums.each do |num| 
-  if num % 2 == 0 
-    sum += num
-  end
+while x <= 4_000_000  # The problem says, "do not exceed", not less than
+  sum += x if x % 2 == 0 # Ruby supports postfix conditionals
+  x, y = y, x + y        # and parallel assignment
 end
 
-sum
+puts sum
 
